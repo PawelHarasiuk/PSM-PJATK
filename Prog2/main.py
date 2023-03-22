@@ -5,25 +5,28 @@ def wypadkowa_sil(q, v, g, m, *args):
     fx = m * g[0]
     fy = m * g[1]
 
+    fx -= q * v[0]
+    fy -= q * v[1]
+
     for f in args:
         fx += f[0]
         fy += f[1]
 
-    fx -= q * v[0]
-    fy -= q * v[1]
     return [fx, fy]
 
 
-def symulacja_Eurela(m, q, g, dt, t, s, v):
+def symulacja_Eurela(m, q, g, dt, max_t, s, v, *args):
     ds = [dt * v[0], dt * v[1]]
     dv = [g[0] * dt, g[1] * dt]
+    t = 0
 
     x = []
     y = []
-    while t <= 2.1:
+    while max_t >= t:
         x.append(s[0])
         y.append(s[1])
-        a = wypadkowa_sil(q, v, g, m)
+        f = wypadkowa_sil(q, v, g, m, *args)
+        a = [f[0] / m, f[1] / m]
         s[0] = ds[0] + s[0]
         s[1] = ds[1] + s[1]
         v[0] = dv[0] + v[0]
@@ -37,16 +40,18 @@ def symulacja_Eurela(m, q, g, dt, t, s, v):
     return x, y
 
 
-def symulacja_ulepszona_Eurela(m, q, g, dt, t, s, v):
+def symulacja_ulepszona_Eurela(m, q, g, dt, max_t, s, v, *args):
     ds = [dt * v[0], dt * v[1]]
     dv = [g[0] * dt, g[1] * dt]
+    t = 0
 
     x = []
     y = []
-    while t <= 2.1:
+    while max_t >= t:
         x.append(s[0])
         y.append(s[1])
-        a = wypadkowa_sil(q, v, g, m)
+        f = wypadkowa_sil(q, v, g, m, *args)
+        a = [f[0] / m, f[1] / m]
         s[0] = ds[0] + s[0]
         s[1] = ds[1] + s[1]
         v[0] = dv[0] + v[0]
@@ -63,18 +68,18 @@ def symulacja_ulepszona_Eurela(m, q, g, dt, t, s, v):
 
 def main():
     m = 1
+    dt = 0.1
+    max_t = 2.5
     q = 0.1
     gx = 0
-    gy = -9.81
-    dt = 0.1
-    t = 0
+    gy = -10
     sx = 0
-    sy = 0
+    sy = 10
     vx = 10
-    vy = 10
+    vy = 0
 
-    x1, y1 = symulacja_Eurela(m, q, [gx, gy], dt, t, [sx, sy], [vx, vy])
-    x2, y2 = symulacja_ulepszona_Eurela(m, q, [gx, gy], dt, t, [sx, sy], [vx, vy])
+    x1, y1 = symulacja_Eurela(m, q, [gx, gy], dt, max_t, [sx, sy], [vx, vy])
+    x2, y2 = symulacja_ulepszona_Eurela(m, q, [gx, gy], dt, max_t, [sx, sy], [vx, vy])
 
     plt.xlabel('Time')
     plt.ylabel('Position')
