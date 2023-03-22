@@ -1,0 +1,207 @@
+Kat: 0.0 stopni
+Sinus obliczony: 0.0
+Sinus dokladny: 0.0
+Blad: 0.0
+
+Kat: 9.0 stopni
+Sinus obliczony: 0.15643446504023087
+Sinus dokladny: 0.15643446504023087
+Blad: 0.0
+
+Kat: 18.0 stopni
+Sinus obliczony: 0.30901699437494756
+Sinus dokladny: 0.3090169943749474
+Blad: 1.6653345369377348E-16
+
+Kat: 27.0 stopni
+Sinus obliczony: 0.45399049973954536
+Sinus dokladny: 0.45399049973954675
+Blad: 1.3877787807814457E-15
+
+Kat: 36.0 stopni
+Sinus obliczony: 0.5877852522902345
+Sinus dokladny: 0.5877852522924731
+Blad: 2.2386537068541656E-12
+
+Kat: 45.0 stopni
+Sinus obliczony: 0.70710678103901
+Sinus dokladny: 0.7071067811865475
+Blad: 1.475374267201346E-10
+
+Kat: 54.0 stopni
+Sinus obliczony: 0.8090169901101656
+Sinus dokladny: 0.8090169943749475
+Blad: 4.264781860996436E-9
+
+Kat: 63.0 stopni
+Sinus obliczony: 0.8910064505909252
+Sinus dokladny: 0.8910065241883678
+Blad: 7.359744258472745E-8
+
+Kat: 72.0 stopni
+Sinus obliczony: 0.9510556396438179
+Sinus dokladny: 0.9510565162951535
+Blad: 8.766513356350814E-7
+
+Kat: 81.0 stopni
+Sinus obliczony: 0.9876804756408909
+Sinus dokladny: 0.9876883405951378
+Blad: 7.86495424687228E-6
+
+Kat: 90.0 stopni
+Sinus obliczony: 0.9999436490076448
+Sinus dokladny: 1.0
+Blad: 5.635099235523633E-5
+
+Kat: 99.0 stopni
+Sinus obliczony: 0.9876804756408909
+Sinus dokladny: 0.9876883405951378
+Blad: 7.86495424687228E-6
+
+Kat: 108.0 stopni
+Sinus obliczony: 0.9510556396438179
+Sinus dokladny: 0.9510565162951536
+Blad: 8.766513357461037E-7
+
+Kat: 117.0 stopni
+Sinus obliczony: 0.8910064505909252
+Sinus dokladny: 0.8910065241883679
+Blad: 7.359744269574975E-8
+
+Kat: 126.0 stopni
+Sinus obliczony: 0.8090169901101656
+Sinus dokladny: 0.8090169943749475
+Blad: 4.264781860996436E-9
+
+Kat: 135.0 stopni
+Sinus obliczony: 0.70710678103901
+Sinus dokladny: 0.7071067811865476
+Blad: 1.4753753774243705E-10
+
+Kat: 144.0 stopni
+Sinus obliczony: 0.5877852522902345
+Sinus dokladny: 0.5877852522924732
+Blad: 2.238764729156628E-12
+
+Kat: 153.0 stopni
+Sinus obliczony: 0.45399049973954536
+Sinus dokladny: 0.45399049973954686
+Blad: 1.4988010832439613E-15
+
+Kat: 162.0 stopni
+Sinus obliczony: 0.30901699437494756
+Sinus dokladny: 0.3090169943749475
+Blad: 5.551115123125783E-17
+
+Kat: 171.0 stopni
+Sinus obliczony: 0.15643446504023087
+Sinus dokladny: 0.15643446504023098
+Blad: 1.1102230246251565E-16
+
+Kat: 180.0 stopni
+Sinus obliczony: 0.0
+Sinus dokladny: 1.2246467991473532E-16
+Blad: 1.2246467991473532E-16
+
+Kat: 189.0 stopni
+Sinus obliczony: -0.15643446504023087
+Sinus dokladny: -0.15643446504023073
+Blad: 1.3877787807814457E-16
+
+Kat: 198.0 stopni
+Sinus obliczony: -0.30901699437494756
+Sinus dokladny: -0.3090169943749473
+Blad: 2.7755575615628914E-16
+
+Kat: 207.0 stopni
+Sinus obliczony: -0.45399049973954536
+Sinus dokladny: -0.4539904997395467
+Blad: 1.3322676295501878E-15
+
+Kat: 216.0 stopni
+Sinus obliczony: -0.5877852522902345
+Sinus dokladny: -0.587785252292473
+Blad: 2.238542684551703E-12
+
+Kat: 225.0 stopni
+Sinus obliczony: -0.70710678103901
+Sinus dokladny: -0.7071067811865475
+Blad: 1.475374267201346E-10
+
+Kat: 234.0 stopni
+Sinus obliczony: -0.8090169901101656
+Sinus dokladny: -0.8090169943749473
+Blad: 4.264781749974134E-9
+
+Kat: 243.0 stopni
+Sinus obliczony: -0.8910064505909252
+Sinus dokladny: -0.8910065241883678
+Blad: 7.359744258472745E-8
+
+Kat: 252.0 stopni
+Sinus obliczony: -0.9510556396438179
+Sinus dokladny: -0.9510565162951535
+Blad: 8.766513356350814E-7
+
+Kat: 261.0 stopni
+Sinus obliczony: -0.9876804756408909
+Sinus dokladny: -0.9876883405951377
+Blad: 7.864954246761258E-6
+
+Kat: 270.0 stopni
+Sinus obliczony: -0.9999436490076448
+Sinus dokladny: -1.0
+Blad: 5.635099235523633E-5
+
+Kat: 279.0 stopni
+Sinus obliczony: -0.9876804756408909
+Sinus dokladny: -0.9876883405951378
+Blad: 7.86495424687228E-6
+
+Kat: 288.0 stopni
+Sinus obliczony: -0.9510556396438179
+Sinus dokladny: -0.9510565162951536
+Blad: 8.766513357461037E-7
+
+Kat: 297.0 stopni
+Sinus obliczony: -0.8910064505909252
+Sinus dokladny: -0.8910065241883679
+Blad: 7.359744269574975E-8
+
+Kat: 306.0 stopni
+Sinus obliczony: -0.8090169901101656
+Sinus dokladny: -0.8090169943749476
+Blad: 4.2647819720187385E-9
+
+Kat: 315.0 stopni
+Sinus obliczony: -0.70710678103901
+Sinus dokladny: -0.7071067811865477
+Blad: 1.4753764876473952E-10
+
+Kat: 324.0 stopni
+Sinus obliczony: -0.5877852522902345
+Sinus dokladny: -0.5877852522924734
+Blad: 2.2388757514590907E-12
+
+Kat: 333.0 stopni
+Sinus obliczony: -0.45399049973954536
+Sinus dokladny: -0.45399049973954697
+Blad: 1.609823385706477E-15
+
+Kat: 342.0 stopni
+Sinus obliczony: -0.30901699437494756
+Sinus dokladny: -0.3090169943749476
+Blad: 5.551115123125783E-17
+
+Kat: 351.0 stopni
+Sinus obliczony: -0.15643446504023087
+Sinus dokladny: -0.15643446504023112
+Blad: 2.498001805406602E-16
+
+Kat: 360.0 stopni
+Sinus obliczony: 0.0
+Sinus dokladny: -2.4492935982947064E-16
+Blad: 2.4492935982947064E-16
+
+
+Process finished with exit code 0
