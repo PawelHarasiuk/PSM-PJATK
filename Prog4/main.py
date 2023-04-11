@@ -7,7 +7,7 @@ r = 2
 h = 20
 m = 1
 g = 9.81
-Ik = 2 / 3 * m * r ** 2
+Ik = 2 / 5 * m * r ** 2
 alfa = math.radians(45)
 d90 = math.radians(90)
 acc = g * math.sin(alfa) / (1 + Ik / (m * r ** 2))
@@ -178,9 +178,9 @@ def kat(t, b):
 
 
 ep2, ek2, ec2, t2, x2, y2, b2 = ulepszony_Euler()
-Ep_vs_Ek_Ec(ep2, ek2, ec2, t2)
+#Ep_vs_Ek_Ec(ep2, ek2, ec2, t2)
 polozenie(x2, y2)
-kat(t2, b2)
+#kat(t2, b2)
 
 ep1, ek1, ec1, t1, x1, y1, b1 = Euler()
 print("Euler:", abs(ec1[-1] - ec1[0]))

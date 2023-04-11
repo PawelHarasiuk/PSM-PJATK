@@ -1,16 +1,8 @@
-from matplotlib import pyplot as plt
-import math
+# Program napisany w Pythonie 
+# Każda z metod przyjmuje parametry które można zmodyfikować aby zasymulować inne warunki początkowe
+# Każda z metod zwraca listy paremetrów które później są wykorzystywane do sporządzenia wykresów 
 
-m = 1
-g = -9.81
-dt = 0.1
-l = 1
-t = 0
-t_max = 13
-alfa = math.radians(45)
-omega = 0
-
-
+# Metoda symulująca ruch za pomocą metody Eulera 
 def symulacja_Eulera(m, g, dt, l, t, alfa, omega):
     wyniki_t = []
     wyniki_x = []
@@ -49,6 +41,7 @@ def symulacja_Eulera(m, g, dt, l, t, alfa, omega):
     return wyniki_t, wyniki_alfa, wyniki_omega, wyniki_x, wyniki_y, wyniki_Ep, wyniki_Ek, wyniki_Ec
 
 
+# Metoda symulująca ruch za pomocą ulepszonej metody Eulera
 def symulacja_ulepszona_Eulera(m, g, dt, l, t, alfa, omega):
     wyniki_t = []
     wyniki_x = []
@@ -66,6 +59,8 @@ def symulacja_ulepszona_Eulera(m, g, dt, l, t, alfa, omega):
         eps_p = g / l * math.sin(alfa_p)
         da = omega_p * dt
         dw = eps_p * dt
+        alfa = alfa + da
+        omega = omega + dw
         x = l * math.cos(alfa - math.radians(90))
         y = l * math.sin(alfa - math.radians(90))
 
@@ -85,12 +80,11 @@ def symulacja_ulepszona_Eulera(m, g, dt, l, t, alfa, omega):
         wyniki_Ec.append(Ec)
 
         t += dt
-        alfa = alfa + da
-        omega = omega + dw
 
     return wyniki_t, wyniki_alfa, wyniki_omega, wyniki_x, wyniki_y, wyniki_Ep, wyniki_Ek, wyniki_Ec
 
 
+# Metoda symulująca ruch za pomocą metody RK4
 def symulacja_rk4(m, g, dt, l, t, alfa, omega):
     wyniki_t = []
     wyniki_x = []
@@ -117,6 +111,9 @@ def symulacja_rk4(m, g, dt, l, t, alfa, omega):
         da = dt / 6 * (k1a + 2 * k2a + 2 * k3a + k4a)
         dw = dt / 6 * (k1w + 2 * k2w + 2 * k3w + k4w)
 
+        alfa += da
+        omega += dw
+
         x = l * math.cos(alfa - math.radians(90))
         y = l * math.sin(alfa - math.radians(90))
 
@@ -136,71 +133,5 @@ def symulacja_rk4(m, g, dt, l, t, alfa, omega):
         wyniki_Ec.append(Ec)
 
         t += dt
-        alfa += da
-        omega += dw
 
     return wyniki_t, wyniki_alfa, wyniki_omega, wyniki_x, wyniki_y, wyniki_Ep, wyniki_Ek, wyniki_Ec
-
-
-def Ep_vs_Ek_Ec(Ep, Ek, Ec, t):
-    fig, ax = plt.subplots()
-    ax.plot(t, Ep, label='Ep')
-    ax.plot(t, Ek, label='Ek')
-    ax.plot(t, Ec, label='Ec')
-    ax.set_xlabel('Czas t [s]')
-    ax.set_ylabel('Energia [J]')
-    ax.legend()
-
-    plt.grid(True)
-    plt.show()
-
-
-def omega_display(alfa, omega):
-    fig, ax = plt.subplots()
-    ax.plot(alfa, omega, label='Omega')
-    ax.legend()
-
-    plt.grid(True)
-    plt.show()
-
-
-def Ec_display(Ec):
-    fig, ax = plt.subplots()
-    ax.plot(Ec, label='Ec')
-    ax.legend()
-    ax.set_ylabel('Energia [J]')
-
-    plt.grid(True)
-    plt.show()
-
-
-def trajektoria(x, y):
-    fig, ax = plt.subplots()
-    ax.plot(x, y, label='Trajektoria')
-    ax.legend()
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-
-    plt.ylim(min(y) - 0.2, 0)
-
-    plt.grid(True)
-    plt.show()
-
-
-#n_t, n_alfa, n_omega, x, y, Ep, Ek, Ec = symulacja_Eulera(m, g, dt, l, t, alfa, omega)
-#Ep_vs_Ek_Ec(Ep, Ek, Ec, n_t)
-#omega_display(n_alfa, n_omega)
-#Ec_display(Ec)
-#trajektoria(x, y)
-
-n_t, n_alfa, n_omega, x, y, Ep, Ek, Ec = symulacja_ulepszona_Eulera(m, g, dt, l, t, alfa, omega)
-Ep_vs_Ek_Ec(Ep, Ek, Ec, n_t)
-omega_display(n_alfa, n_omega)
-Ec_display(Ec)
-trajektoria(x, y)
-
-#n_t, n_alfa, n_omega, x, y, Ep, Ek, Ec = symulacja_rk4(m, g, dt, l, t, alfa, omega)
-#Ep_vs_Ek_Ec(Ep, Ek, Ec, n_t)
-#omega_display(n_alfa, n_omega)
-#Ec_display(Ec)
-#trajektoria(x, y)
