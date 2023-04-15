@@ -1,15 +1,14 @@
 import math
 from matplotlib import pyplot as plt
 
-# Stałe fizyczne
 G = 6.6743e-11
 Ms = 1.989e30
 Mz = 5.972e24
 Mk = 7.347e22
 RZS = 1.5e8 * 1000
 RZK = 384400 * 1000
-t_end = 365 * 24 * 60 * 60.69  # 1 rok w sekundach
-dt = 50000
+t_end = 366 * 24 * 60 * 60
+dt = 3600
 
 
 def Ziemia_Ksiezyc():
@@ -62,14 +61,13 @@ def Ziemia_Ksiezyc():
     return list_x, list_y
 
 
-def Ziemia_Slonce():
+def Slonce_Ziemia():
     list_x = []
     list_y = []
     t_start = 0
     sx = 0
     sy = RZS
     vx = math.sqrt(G * Ms / RZS)
-
     vy = 0
 
     while t_start < t_end:
@@ -113,39 +111,30 @@ def Ziemia_Slonce():
     return list_x, list_y
 
 
-def polozenie(x_s, y_s, x_k, y_k):
+def polozenie(x_k, y_k, x_s, y_s):
     fig, ax = plt.subplots()
-    ax.plot(x_s, y_s, label='ziemia')
     ax.plot(x_k, y_k, label='ksiezyc')
+    ax.plot(x_s, y_s, label='ziemia')
 
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
     ax.legend()
 
     plt.grid(True)
     plt.show()
 
 
-def polozenie_(x_s, y_s):
-    fig, ax = plt.subplots()
-    ax.plot(x_s, y_s, label='ksiezyc')
+def Slonce_Ksiezyc():
+    x = []
+    y = []
 
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.legend()
+    x1, y1 = Slonce_Ziemia()
+    x2, y2 = Ziemia_Ksiezyc()
 
-    plt.grid(True)
-    plt.show()
+    for i in range(len(x1)):
+        x.append(x1[i] + x2[i])
+        y.append(y1[i] + y2[i])
+    return x, y
 
 
-x1, y1 = Ziemia_Slonce()
-x2, y2 = Ziemia_Ksiezyc()
-
-x = []
-y = []
-
-for i in range(len(x1)):
-    x.append(x1[i] + x2[i])
-    y.append(y1[i] + y2[i])
-
+x, y = Slonce_Ksiezyc()
+x1, y1 = Slonce_Ziemia()
 polozenie(x, y, x1, y1)
