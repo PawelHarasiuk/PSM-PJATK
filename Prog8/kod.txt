@@ -1,5 +1,4 @@
 import time
-
 import numpy as np
 import pygame
 import pygame_gui
@@ -11,20 +10,11 @@ def update_game(screen, cells, rules, update=False):
 
     live_rules, dead_rules = prepare_rules(rules)
     for row, col in np.ndindex(cells.shape):
-        neighbors = (
-                cells[(row - 1) % cells.shape[0], (col - 1) % cells.shape[1]] +
-                cells[(row - 1) % cells.shape[0], col % cells.shape[1]] +
-                cells[(row - 1) % cells.shape[0], (col + 1) % cells.shape[1]] +
-                cells[row % cells.shape[0], (col - 1) % cells.shape[1]] +
-                cells[row % cells.shape[0], (col + 1) % cells.shape[1]] +
-                cells[(row + 1) % cells.shape[0], (col - 1) % cells.shape[1]] +
-                cells[(row + 1) % cells.shape[0], col % cells.shape[1]] +
-                cells[(row + 1) % cells.shape[0], (col + 1) % cells.shape[1]]
-        )
+        alive = np.sum(cells[row - 1:row + 2, col - 1:col + 2]) - cells[row, col]
         color = (10, 10, 10) if cells[row, col] == 0 else (255, 255, 255)
 
         if cells[row, col] == 1:
-            if neighbors in live_rules:
+            if alive in live_rules:
                 updated_cells[row, col] = 1
                 if update:
                     color = (255, 255, 255)
@@ -32,7 +22,7 @@ def update_game(screen, cells, rules, update=False):
                 if update:
                     color = (10, 10, 10)
         else:
-            if neighbors in dead_rules:
+            if alive in dead_rules:
                 updated_cells[row, col] = 1
                 if update:
                     color = (255, 255, 255)
@@ -86,11 +76,7 @@ def main():
                     pygame.display.update()
                 elif event.key == pygame.K_RETURN:
                     if not running:
-                        if text_entry.text == 'reset':
-                            cells = np.zeros((rows, cols))
-                            update_game(screen, cells, rules)
-                        else:
-                            rules = text_entry.text
+                        rules = text_entry.text
                         text_entry.set_text('')
 
             if pygame.mouse.get_pressed()[0]:
